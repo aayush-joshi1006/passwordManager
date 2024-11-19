@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.inputBox {
+    @apply my-2 p-2 pl-2 rounded-full border border-green-700 outline-none bg-green-100 text-green-800;
+}
