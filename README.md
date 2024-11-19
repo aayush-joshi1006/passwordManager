@@ -55,39 +55,45 @@ SafePass is a secure and user-friendly password management web application. It e
 
 ### Clone the Repository
 
-```bash
+```
 git clone https://github.com/yourusername/safepass.git
 cd safepass
 ```
 
 ### Backend Setup
 1. Navigate to the backend directory:
-```bash
-cd backend```
+```
+cd backend 
+```
 
 
 2.Install dependencies:
-```bash
-npm install```
+```
+npm install
+```
 
 3.Start the server:
-```bash
-node index.js```
+```
+node index.js
+```
 
 The backend server will run on http://localhost:3000.
 
 ### Frontend Setup
 1. Navigate to the frontend directory:
-```bash
-cd frontend```
+```
+cd frontend
+```
 
 2. Install dependencies:
-```bash
-npm install```
+```
+npm install
+```
 
 3. Start the development server:
-```bash
-npm run dev```
+```
+npm run dev
+```
 
 The frontend application will run on http://localhost:5173.
 
@@ -121,7 +127,8 @@ Base URL: http://localhost:3000
   "site": "example.com",
   "username": "yourusername",
   "password": "yourpassword"
-}```
+}
+```
 
 - Description: Adds a new password to the database.
 
@@ -133,7 +140,8 @@ Base URL: http://localhost:3000
 ```json
 {
   "id": "unique-id-of-password"
-}```
+}
+```
 
 - Description: Deletes a password from the database.
 
