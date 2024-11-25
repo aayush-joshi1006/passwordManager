@@ -13,11 +13,17 @@ const Manager = () => {
     const [passswordArray, setpassswordArray] = useState([])
 
 
+
     const getPasswords = async () => {
-        let req = await fetch("http://localhost:3000/")
+        let req = await fetch(`http://localhost:3000`)
         let passwords = await req.json()
-        setpassswordArray(passwords)
-        console.log(passwords)
+        // setpassswordArray(passwords)
+        // console.log(passwords)
+        if (Array.isArray(passwords)) {
+          setpassswordArray(passwords);
+        } else {
+          setpassswordArray([]); // Set an empty array if the response is not an array
+        }
     }
 
 
@@ -30,10 +36,10 @@ const Manager = () => {
         
         // localStorage.setItem("passwords", JSON.stringify([...passswordArray, { ...form, id: uuidv4() }]))
         
-        await fetch("http://localhost:3000/",{method:"DELETE",headers:{"Content-Type":"application/json"}, body: JSON.stringify({id:form.id}) })
+        await fetch(`http://localhost:3000`,{method:"DELETE",headers:{"Content-Type":"application/json"}, body: JSON.stringify({id:form.id}) })
         
         setpassswordArray([...passswordArray,{...form, id: uuidv4() }])
-        await fetch("http://localhost:3000/",{method:"POST",headers:{"Content-Type":"application/json"}, body: JSON.stringify({ ...form,id:uuidv4() }) })
+        await fetch(`http://localhost:3000`,{method:"POST",headers:{"Content-Type":"application/json"}, body: JSON.stringify({ ...form,id:uuidv4() }) })
 
 
         setform({ site: "", username: "", password: "" })
@@ -78,7 +84,7 @@ const Manager = () => {
         if (confirmation) {
             setpassswordArray(passswordArray.filter(item => item.id !== id))
             // localStorage.setItem("passwords", JSON.stringify(passswordArray.filter(item => item.id !== id)))
-            let res= await fetch("http://localhost:3000/",{method:"DELETE",headers:{"Content-Type":"application/json"}, body: JSON.stringify({id}) })
+            let res= await fetch(`http://localhost:3000`,{method:"DELETE",headers:{"Content-Type":"application/json"}, body: JSON.stringify({id}) })
         }
     }
 
